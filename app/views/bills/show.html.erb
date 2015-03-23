@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @bill.name %>
+</p>
+
+<p>
+  <strong>Cycle start date:</strong>
+  <%= @bill.cycle_start_date %>
+</p>
+
+<p>
+  <strong>Cycle end date:</strong>
+  <%= @bill.cycle_end_date %>
+</p>
+
+<p>
+  <strong>Due date:</strong>
+  <%= @bill.due_date %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @bill.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_bill_path(@bill) %> |
+<%= link_to 'Back', bills_path %>
