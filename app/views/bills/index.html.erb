@@ -6,19 +6,16 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Cycle start date</th>
-      <th>Cycle end date</th>
+
       <th>Due date</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @bills.each do |bill| %>
+    <% current_user.bills.each do |bill| %>
       <tr>
         <td><%= bill.name %></td>
-        <td><%= bill.cycle_start_date %></td>
-        <td><%= bill.cycle_end_date %></td>
         <td><%= bill.due_date %></td>
         <td><%= link_to 'Show', bill %></td>
         <td><%= link_to 'Edit', edit_bill_path(bill) %></td>
