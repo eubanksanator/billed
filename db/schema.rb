@@ -11,16 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150323010625) do
+ActiveRecord::Schema.define(version: 20150323115848) do
 
   create_table "bills", force: :cascade do |t|
     t.string   "name"
-    t.string   "cycle_start_date"
-    t.string   "cycle_end_date"
-    t.string   "due_date"
     t.integer  "user_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "due_date"
   end
 
   create_table "users", force: :cascade do |t|
