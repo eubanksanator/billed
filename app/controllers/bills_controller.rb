@@ -15,7 +15,7 @@ class BillsController < ApplicationController
 
   # GET /bills/new
   def new
-    @bill = Bill.new
+    @bill = current_user.bills.build
   end
 
   # GET /bills/1/edit
@@ -25,7 +25,7 @@ class BillsController < ApplicationController
   # POST /bills
   # POST /bills.json
   def create
-    @bill = Bill.new(bill_params)
+    @bill = current_user.bills.build(bill_params)
 
     respond_to do |format|
       if @bill.save
