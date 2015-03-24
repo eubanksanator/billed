@@ -9,38 +9,35 @@
 <body>
 
 
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">
-        <span class="glyphicon glyphicon-piggy-bank"></span>
-      </a>
+
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">
+          <span class="glyphicon glyphicon-piggy-bank fa-4x"></span></a>
+        </div>
+        <p class="bold">Welcome <%= current_user.username %>, you have <%= pluralize(current_user.bills.count, 'bill') %> saved.</p>
+
+        <% if user_signed_in? %>
+        <%= link_to "Sign Out", destroy_user_session_path, method: 'delete', class: 'pull-right' %>
+        <% end %>
+      </div>
+    </nav>
+
+
+
+
+
+
+
+    <div class="container">
+
+      <% if notice.present? %>
+      <p id="notice"><%= notice %></p>
+      <% end %>
+
+      <%= yield %>
+
     </div>
-  </div>
-</nav>
-
-
-
-
-
-
-<nav class="navbar navbar-default">
-<ul>
-  <% if user_signed_in? %>
-   <li><%= link_to "Sign Out", destroy_user_session_path, method: 'delete' %></li>
-   <li>Welcome <%= current_user.username %>, you have <%= pluralize(current_user.bills.count, 'bill') %> saved.</li>
-  <% end %>
-  </ul>
-</nav>
-
-<div class="container">
-
-<% if notice.present? %>
-  <p id="notice"><%= notice %></p>
-<% end %>
-
-<%= yield %>
-
-</div>
-</body>
-</html>
+  </body>
+  </html>
