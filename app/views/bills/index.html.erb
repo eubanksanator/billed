@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 
 <div class="col-md-offset-2 col-md-8">
   <p class="heading-content">Welcome <%= current_user.username %>, you have <%= current_user.bills.count %> bills saved.
@@ -23,8 +21,8 @@
         <% current_user.bills.each do |bill| %>
         <tr>
           <td><%= bill.name %></td>
-          <td><%= bill.due_date %></td>
-          <td><%= bill.reminder %></td>
+          <td><%= bill.due_date.to_s(:due_time) %></td>
+          <td><%= bill.reminder.to_s(:due_time) %></td>
           <td><%= link_to 'Show', bill %></td>
           <td><%= link_to 'Edit', edit_bill_path(bill) %></td>
           <td><%= link_to 'Destroy', bill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
