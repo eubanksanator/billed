@@ -1,31 +1,41 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Bills</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
+<div class="col-md-offset-2 col-md-8">
+  <p class="heading-content">Welcome <%= current_user.username %>, you have <%= current_user.bills.count %> bills saved.
+    <%= link_to 'New Bill', new_bill_path, class: 'pull-right' %>
+  </p>
 
-      <th>Due date</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <p class="heading-content">Well hot diggity dog! Here is where all your saved bills will be located with the due date of each bill.  Don't
+  worry, whoever created this app is smart and built it to send a nice text message reminder a couple days before its due!</p>
 
-  <tbody>
-    <% current_user.bills.each do |bill| %>
-      <tr>
-        <td><%= bill.name %></td>
-        <td><%= bill.due_date %></td>
-        <td><%= link_to 'Show', bill %></td>
-        <td><%= link_to 'Edit', edit_bill_path(bill) %></td>
-        <td><%= link_to 'Destroy', bill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <div class="panel panel-default">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Due date</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
-<br>
+      <tbody>
+        <% current_user.bills.each do |bill| %>
+        <% if bill.id.odd? %>
+        <tr class="colored-row">
+        <% else %>
+        <tr>
+        <% end %>
+          <td><%= bill.name %></td>
+          <td><%= bill.due_date %></td>
+          <td><%= link_to 'Show', bill %></td>
+          <td><%= link_to 'Edit', edit_bill_path(bill) %></td>
+          <td><%= link_to 'Destroy', bill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
 
-<%= link_to 'New Bill', new_bill_path %>
 
