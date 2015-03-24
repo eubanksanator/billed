@@ -25,3 +25,41 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+
+<%= form_for bill, :html => {:class => "form-horizontal center"} do |f| %>
+<div class="form-group">
+  <%= f.label :name, class: "col-md-2" %>
+  <div class="col-md-8">
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+</div>
+<div class="form-group">
+  <%= f.label "Notes", class: "col-md-2" %>
+  <div class="col-md-8">
+    <%= f.text_field :description, class: "form-control" %>
+  </div>
+</div>
+<div class="form-group">
+  <%= f.label "Time Due", class: "col-md-2" %>
+  <div class="col-md-8">
+    <%= f.datetime_select :time_due, ampm: true, class: "form-control" %>
+  </div>
+</div>
+<div class="form-group">
+  <%= f.label "Reminder At", class: "col-md-2" %>
+  <div class="col-md-8">
+    <%= f.datetime_select :reminder_at, class: "form-control" %>
+  </div>
+</div>
+<div class="form-group">
+  <div class="col-md-8">
+    <%= f.hidden_field :user_id, value: "#{current_user.id}", class: "form-control" %>
+  </div>
+</div>
+<div class="form-group">
+  <div class="col-md-8">
+    <%= f.submit %>
+  </div>
+</div>
+<% end %>
