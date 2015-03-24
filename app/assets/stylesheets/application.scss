@@ -23,9 +23,10 @@ tr {
   border-bottom-color: gray;
 }
 
-.navbar {
+.navbar, .navbar-collapse{
   background-color: #04C977;
-  border-radius: 0px;
+  border: 0;
+  border-radius: 0;
 }
 
 #notice {
@@ -33,4 +34,12 @@ tr {
   border-radius: 3px;
   padding: 20px;
   font-size: 24px;
+}
+
+@media (min-width: 768px){
+  .navbar-nav li a {
+    padding-top: 0px;
+    padding-bottom: 15px;
+    border: 0;
+  }
 }

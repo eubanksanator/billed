@@ -13,31 +13,43 @@
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">
-          <span class="glyphicon glyphicon-piggy-bank fa-4x"></span></a>
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a class="navbar-brand" href="#"><span class="glyphicon glyphicon-piggy-bank fa-3x"></span></a></li>
+          </ul>
         </div>
-        <p class="bold">Welcome <%= current_user.username %>, you have <%= pluralize(current_user.bills.count, 'bill') %> saved.</p>
-
-        <% if user_signed_in? %>
-        <%= link_to "Sign Out", destroy_user_session_path, method: 'delete', class: 'pull-right' %>
-        <% end %>
       </div>
-    </nav>
 
-
-
-
-
-
-
-    <div class="container">
-
-      <% if notice.present? %>
-      <p id="notice"><%= notice %></p>
-      <% end %>
-
-      <%= yield %>
-
+      <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+        <li><%= current_user.username %>, you have <%= pluralize(current_user.bills.count, 'bill') %></li>
+        <% end %>
+      </ul>
     </div>
-  </body>
-  </html>
+  </nav>
+
+
+
+
+
+
+
+  <div class="container">
+
+    <% if notice.present? %>
+    <p id="notice"><%= notice %></p>
+    <% end %>
+
+    <%= yield %>
+
+  </div>
+</body>
+</html>
