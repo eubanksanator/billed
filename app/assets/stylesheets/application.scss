@@ -16,8 +16,9 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.colored-row {
-  background-color: #D2D2D4;
+tr {
+  border-color: white;
+  border-bottom-color: gray;
 }
 
 .navbar {

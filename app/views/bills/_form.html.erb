@@ -1,4 +1,4 @@
-<%= form_for(@bill) do |f| %>
+
   <% if @bill.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@bill.errors.count, "error") %> prohibited this bill from being saved:</h2>
@@ -11,52 +11,42 @@
     </div>
   <% end %>
 
-  <div class="form-group">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
 
-<div class="form-group">
-  <%= f.label :due_date %>
-  <%= f.number_field :due_date %>
-</div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
-
-
-<%= form_for bill, :html => {:class => "form-horizontal center"} do |f| %>
+<%= form_for @bill, :html => {:class => "form-horizontal center"} do |f| %>
 <div class="form-group">
   <%= f.label :name, class: "col-md-2" %>
   <div class="col-md-8">
     <%= f.text_field :name, class: "form-control" %>
   </div>
 </div>
+
+<div class="form-group">
+  <%= f.label "Due Date", class: "col-md-2" %>
+  <div class="col-md-8">
+    <%= f.datetime_select :due_date, ampm: true, class: "form-control" %>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= f.label "Remind me", class: "col-md-2" %>
+  <div class="col-md-8">
+    <%= f.datetime_select :reminder, class: "form-control" %>
+  </div>
+</div>
+
 <div class="form-group">
   <%= f.label "Notes", class: "col-md-2" %>
   <div class="col-md-8">
-    <%= f.text_field :description, class: "form-control" %>
+    <%= f.text_field :notes, class: "form-control" %>
   </div>
 </div>
-<div class="form-group">
-  <%= f.label "Time Due", class: "col-md-2" %>
-  <div class="col-md-8">
-    <%= f.datetime_select :time_due, ampm: true, class: "form-control" %>
-  </div>
-</div>
-<div class="form-group">
-  <%= f.label "Reminder At", class: "col-md-2" %>
-  <div class="col-md-8">
-    <%= f.datetime_select :reminder_at, class: "form-control" %>
-  </div>
-</div>
+
 <div class="form-group">
   <div class="col-md-8">
     <%= f.hidden_field :user_id, value: "#{current_user.id}", class: "form-control" %>
   </div>
 </div>
+
 <div class="form-group">
   <div class="col-md-8">
     <%= f.submit %>
