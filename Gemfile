@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'twilio-ruby'
+
 gem "font-awesome-rails"
 gem 'bootstrap-sass', '~> 3.3.4'
 gem 'devise'
