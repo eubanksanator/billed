@@ -6,6 +6,10 @@ class BillsController < ApplicationController
   # GET /bills.json
   def index
     @bills = Bill.all
+
+      if @bills.length == 0
+        flash[:notice] = 'You have no appointments. Create one now to get started.'
+      end
   end
 
   # GET /bills/1
@@ -29,11 +33,9 @@ class BillsController < ApplicationController
 
     respond_to do |format|
       if @bill.save
-        format.html { redirect_to @bill, notice: 'Bill was successfully created.' }
-        format.json { render :show, status: :created, location: @bill }
+        format.html { redirect_to @bills, notice: 'Bill was successfully created.' }
       else
         format.html { render :new }
-        format.json { render json: @bill.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -44,10 +46,8 @@ class BillsController < ApplicationController
     respond_to do |format|
       if @bill.update(bill_params)
         format.html { redirect_to @bill, notice: 'Bill was successfully updated.' }
-        format.json { render :show, status: :ok, location: @bill }
       else
         format.html { render :edit }
-        format.json { render json: @bill.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -58,7 +58,6 @@ class BillsController < ApplicationController
     @bill.destroy
     respond_to do |format|
       format.html { redirect_to root_url, notice: 'Bill was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
