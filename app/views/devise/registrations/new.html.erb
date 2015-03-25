@@ -10,13 +10,21 @@
 
   <div class="field">
     <%= f.label :avatar_url %><br />
-    <%= f.email_field :avatar_url, autofocus: true %>
+    <%= f.text_field :avatar_url, autofocus: true %>
   </div>
 
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
+
+  <div class="field">
+    <%= f.label :phone_number %><br />
+    <%= f.text_field :phone_number, autofocus: true %>
+  </div>
+
+  <!-- allow user to radiu button for current phone #, or to add new one -->
+
 
   <div class="field">
     <%= f.label :password %>
