@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby '2.2.0'
 
 gem 'twilio-ruby'
-gem "font-awesome-rails"
+gem 'font-awesome-sass', '~> 4.3.0'
 gem 'bootstrap-sass', '~> 3.3.4'
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
