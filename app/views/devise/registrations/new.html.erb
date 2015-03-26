@@ -1,3 +1,11 @@
+
+
+<div class="row" id="landing-page-banner">
+
+
+
+<div id="new-user" class= "pull-right">
+
 <h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -18,10 +26,7 @@
     <%= f.email_field :email, autofocus: true %>
   </div>
 
-  <div class="field">
-    <%= f.label :phone_number %><br />
-    <%= f.text_field :phone_number, autofocus: true %>
-  </div>
+
 
   <!-- allow user to radiu button for current phone #, or to add new one -->
 
@@ -45,3 +50,6 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+</div>
+  </div>
+

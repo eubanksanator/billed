@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 ruby '2.2.0'
 
 gem 'twilio-ruby'
-
 gem "font-awesome-rails"
 gem 'bootstrap-sass', '~> 3.3.4'
 gem 'devise'
@@ -38,9 +37,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development do
       gem 'sqlite3'
     end
-
-
-
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
