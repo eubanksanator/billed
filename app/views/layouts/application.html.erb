@@ -10,9 +10,6 @@
 
 </head>
 <body>
-
-
-
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -23,10 +20,9 @@
           <span class="icon-bar"></span>
         </button>
 
-
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li><a class="navbar-brand" href="#"><span class="glyphicon glyphicon-piggy-bank fa-4x"></span></a></li>
+            <li><%= link_to '', root_path, class: 'glyphicon glyphicon-piggy-bank fa-4x' %></li>
             <% if user_signed_in? %>
             <li><%= link_to "Add new bill", new_bill_path %></li>
             <% end %>
@@ -42,18 +38,11 @@
     </div>
   </nav>
 
-
-
-
-
-
-
-
     <% if notice.present? %>
     <p id="notice"><%= notice %></p>
     <% end %>
-<div class="container">
 
+<div class="container">
     <%= yield %>
 </div>
 
