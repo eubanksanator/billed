@@ -23,14 +23,14 @@
 <div class="form-group">
   <%= f.label "Due Date", class: "col-md-2" %>
   <div class="col-md-8">
-    <%= f.datetime_select :due_date, ampm: true, class: "form-control" %>
+    <%= f.date_select :due_date, ampm: true, :discard_year => true, class: "form-control" %>
   </div>
 </div>
 
 <div class="form-group">
   <%= f.label "Remind me", class: "col-md-2" %>
   <div class="col-md-8">
-    <%= f.datetime_select :reminder, class: "form-control" %>
+    <%= f.date_select :reminder, :discard_year => true, class: "form-control" %>
   </div>
 </div>
 
