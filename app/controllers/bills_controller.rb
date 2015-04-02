@@ -6,10 +6,6 @@ class BillsController < ApplicationController
   # GET /bills.json
   def index
     @bills = Bill.all
-
-      if @bills.length == 0
-        flash[:notice] = 'You have no appointments. Create one now to get started.'
-      end
   end
 
   # GET /bills/1
@@ -33,7 +29,7 @@ class BillsController < ApplicationController
 
     respond_to do |format|
       if @bill.save
-        format.html { redirect_to @bills, notice: 'Bill was successfully created.' }
+        format.html { redirect_to @bill, notice: 'Bill was successfully created.' }
       else
         format.html { render :new }
       end
