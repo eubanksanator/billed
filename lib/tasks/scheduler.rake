@@ -19,9 +19,6 @@ namespace :reminder do
     })
     puts "the text was sent for task#{bill.user_id} for #{bill.name}"
       end
-
-      puts "the text was not sent"
     end
-
   end
 end
