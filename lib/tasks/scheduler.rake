@@ -7,7 +7,7 @@ namespace :reminder do
     Bill.all.each do |bill|
       if bill.reminder > DateTime.now.beginning_of_day && bill.reminder < DateTime.now.beginning_of_day+1.day
 
-    account_sid = ENV["ACCOUNT_SID"]
+    account_sid = ENV["TWILIO_ACCOUNT_SID"]
     auth_token = ENV["TWILIO_AUTH_TOKEN"]
 
     @client = Twilio::REST::Client.new account_sid, auth_token
