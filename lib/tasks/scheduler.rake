@@ -1,3 +1,5 @@
+require 'twilio-ruby'
+
 
 namespace :reminder do
   desc "checks to see if a reminder is needed on a user to be sent as text"
@@ -5,22 +7,18 @@ namespace :reminder do
     Bill.all.each do |bill|
       if bill.reminder > DateTime.now.beginning_of_day && bill.reminder < DateTime.now.beginning_of_day+1.day
 
-        require 'twilio-ruby'
-        # put your own credentials here
-        account_sid = 'AC423dc892eded187de44e58e39d6bbc3d'
-        auth_token = '13a9adc57d31d0aa2b8aaaf8fb84a3d7'
+    account_sid = ENV["TWILIO_ACCOUNT_SID"]
+    auth_token = ENV["TWILIO_AUTH_TOKEN"]
 
-        # set up a client to talk to the Twilio REST API
-        @client = Twilio::REST::Client.new account_sid, auth_token
+    @client = Twilio::REST::Client.new account_sid, auth_token
 
-        @client.account.messages.create({
-          :from => '+12248033620',
-          :to => '+18475088751',
-          :body => 'Hello this works',
-          })
-        puts "it worked"
+    @client.account.messages.create({
+      :from => '+12248033620',
+      :to => '847-508-8751',
+      :body => "Hello #{bill.user.username}, this is your reminder that your #{bill.name} bill is due tomorrow :)",
+    })
+    puts "the text was sent for task#{bill.user_id} for #{bill.name}"
       end
-      puts "it worked also"
     end
   end
 end
