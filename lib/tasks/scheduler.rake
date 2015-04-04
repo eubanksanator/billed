@@ -14,7 +14,7 @@ namespace :reminder do
 
     @client.account.messages.create({
       :from => '+12248033620',
-      :to => '847-508-8751',
+      :to => "+1#{bill.phone_number}",
       :body => "Hello #{bill.user.username}, this is your reminder that your #{bill.name} bill is due #{bill.due_date} :)",
     })
     puts "the text was sent for task#{bill.user_id} for #{bill.name}"

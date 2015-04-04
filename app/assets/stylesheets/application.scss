@@ -15,8 +15,8 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome-sprockets";
 @import "font-awesome";
-
 
 tr {
   border-color: white;
@@ -36,7 +36,7 @@ tr {
 #notice {
   background-color: #5E92DB;
   border-radius: 3px;
-  padding: 20px;
+  padding: 10px;
   font-size: 24px;
 }
 
@@ -49,11 +49,10 @@ tr {
 }
 
 #landing-page-banner {
-  /*background-image: url('http://www.quickmeme.com/img/22/22d4e4c202f65c087c4d5a8ac07a3d75981db5ba7d6de0dfd436071cadbc0849.jpg');*/
-  background-repeat: no-repeat;
-  background-color: #C4C4C4;
+  background-color: #C1DED2;
   margin-right: 0;
   height: 500px;
+  border-radius: 20px;
 }
 
 #new-user {
@@ -68,14 +67,19 @@ tr {
   margin-top: 45px;
 }
 
+.actions {
+  margin-top: 10px;
+}
 
+.navbar-heading-right {
+  font-family: 'Armata', sans-serif;
+}
 
-/*.fa-cube {
-  height: 200px;
-  width: 200px;
-  font-size: 225px;
-  margin: 50px;
-}*/
+.navbar-heading-left {
+  font-family: 'Armata', sans-serif;
+  font-size: 20px;
+}
+
 
 
 
