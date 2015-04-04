@@ -17,12 +17,11 @@
       <tbody>
         <% current_user.bills.each do |bill| %>
         <tr>
-          <td><%= bill.name %></td>
+          <td><%= bill.name.capitalize %></td>
           <td><%= bill.due_date.to_s(:due_time) %></td>
           <td><%= bill.reminder.to_s(:due_time) %></td>
           <td><%= bill.phone_number %></td>
 
-          <td><%= link_to 'Show', bill %></td>
           <td><%= link_to 'Edit', edit_bill_path(bill) %></td>
           <td><%= link_to 'Destroy', bill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
