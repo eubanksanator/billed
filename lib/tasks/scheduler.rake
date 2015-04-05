@@ -5,7 +5,7 @@ namespace :reminder do
   desc "checks to see if a reminder is needed on a user to be sent as text"
   task :send => :environment do
     Bill.all.each do |bill|
-      # if bill.reminder > DateTime.now.beginning_of_day && bill.reminder < DateTime.now.beginning_of_day+1.day
+      if bill.reminder > DateTime.now && bill.reminder < DateTime.now+1.day  #.beginning_of_day - .beginning_of_day
 
     account_sid = Rails.application.secrets.twilio_account_sid #ENV["TWILIO_ACCOUNT_SID"]
     auth_token = Rails.application.secrets.twilio_auth_token #ENV["TWILIO_AUTH_TOKEN"]
@@ -18,8 +18,8 @@ namespace :reminder do
       :body => "Hello #{bill.user.username}, this is your reminder that your #{bill.name} bill is due #{bill.due_date} :)",
     })
     puts "the text was sent for task#{bill.user_id} for #{bill.name}"
-      # end
-      puts "it worked"
+      end
     end
+  puts "it worked"
   end
 end
