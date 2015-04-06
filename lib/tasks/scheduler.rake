@@ -1,11 +1,13 @@
+require 'date'
 require 'twilio-ruby'
+
 
 
 namespace :reminder do
   desc "checks to see if a reminder is needed on a user to be sent as text"
   task :send => :environment do
     Bill.all.each do |bill|
-      if bill.reminder > DateTime.now && bill.reminder < DateTime.now+1.day  #.beginning_of_day - .beginning_of_day
+      if bill.reminder == Date.today
 
     account_sid = Rails.application.secrets.twilio_account_sid #ENV["TWILIO_ACCOUNT_SID"]
     auth_token = Rails.application.secrets.twilio_auth_token #ENV["TWILIO_AUTH_TOKEN"]
