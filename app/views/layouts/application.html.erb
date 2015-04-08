@@ -12,6 +12,8 @@
 <body>
   <nav class="navbar navbar-default">
     <div class="container-fluid">
+      <p class="text-center nav-title">Billed</p>
+
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
           <span class="sr-only">Toggle navigation</span>
@@ -33,6 +35,7 @@
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
         <li class="navbar-heading-right"><%= current_user.username.capitalize %>, you have <%= pluralize(current_user.bills.count, 'bill') %></li>
+        <li><%= link_to "Sign Out", destroy_user_session_path, method: 'delete' %></li>
         <% end %>
       </ul>
     </div>
