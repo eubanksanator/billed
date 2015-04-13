@@ -6,3 +6,8 @@ User can update/delete bills
 
 User sets due date of bill from drop-down of list 1-31 (day in the month).
 User sets phone number for notifications of due date (2 days before due).
+
+
+
+<%= f.date_select :due_date, ampm: true, :discard_year => true, class: "form-control" %>
+<%= f.date_select :reminder, :discard_year => true, class: "form-control" %>
