@@ -22,9 +22,9 @@ namespace :reminder do
     puts "the text was sent for task#{bill.user_id} for #{bill.name}"
       end
       # if bill.reminder > Date.today
-      #   bill.reminder =  bill.update_attribute(reminder, +1.month)
-      #   bill.reminder.save
+      #   bill.reminder = bill.reminder + 1.month
       # end
+      # puts "updated"
     end
   puts "it worked"
   end
