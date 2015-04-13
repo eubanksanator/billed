@@ -21,6 +21,9 @@ namespace :reminder do
       this is your reminder that your #{bill.name} bill is due #{bill.due_date.to_s(:due_time)} :)",})
     puts "the text was sent for task#{bill.user_id} for #{bill.name}"
       end
+      if bill.reminder > Date.today
+        bill.reminder
+      end
     end
   puts "it worked"
   end
