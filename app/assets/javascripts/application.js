@@ -17,4 +17,3 @@
 
 //= require jquery
 //= require bootstrap-sprockets
-//= require recurring_select
