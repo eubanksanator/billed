@@ -26,7 +26,14 @@
     <%= f.date_select :due_date, ampm: true, :discard_year => true, class: "form-control" %>
   </div>
 </div>
-
+<p>
+    <%= f.label :recurring_rules, "defaults but not set" %><br/>
+    <%= f.select_recurring :recurring_rules, [
+      IceCube::Rule.weekly(2).day(:monday, :wednesday, :friday),
+      IceCube::Rule.monthly.day_of_month(-1),
+      IceCube::Rule.yearly.day_of_year(1)
+    ] %>
+</p>
 <div class="form-group">
   <%= f.label "Remind me", class: "col-md-2" %>
   <div class="col-md-4">
